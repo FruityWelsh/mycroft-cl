@@ -44,12 +44,12 @@ def get_mycroft_message(command, json_dir=JSON_DIR_ENV):
     return message
 
 
-def run(command, mycroft_addr=MYCROFT_ADDR_ENV, mycroft_port=MYCROFT_PORT_ENV):
+def run(command, data, mycroft_addr=MYCROFT_ADDR_ENV, mycroft_port=MYCROFT_PORT_ENV):
     message = get_mycroft_message(command)
-    if command.lower() == "listen":
-        pass
+    if command == "speak":
+        message["data"]["utterance"] = "".join(data)
     send_message(message, mycroft_addr, mycroft_port)
 
 
 if __name__ == "__main__":
-    run(sys.argv[1])
+    run(sys.argv[1], sys.argv[2:])

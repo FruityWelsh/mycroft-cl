@@ -16,7 +16,11 @@ class test_speak_subcommand(unittest.TestCase):
 
     def test_speak_subcommand(self):
         with unittest.mock.patch(mycroft_cl.create_connection):
-            mycroft_cl.run("speak")
+            mycroft_cl.run("speak", "hello")
+
+    def test_listen_subcommand(self):
+        with unittest.mock.patch(mycroft_cl.create_connection):
+            mycroft_cl.run("listen")
 
     def tearDown(self):
         os.environ["MYCROFT_PORT"] = self.MYCROFT_PORT_OLD
