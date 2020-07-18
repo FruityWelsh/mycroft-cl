@@ -15,6 +15,9 @@ except KeyError:
     logging.warning("ENV VARS NOT SET. Using default.")
     MYCROFT_ADDR_ENV = "localhost"
     MYCROFT_PORT_ENV = "8181"
+    JSON_DIR_ENV = "%s/mycroft-json-messages" % (
+        os.path.dirname(os.path.realpath(__file__))
+    )
 
 
 def send_message(message, mycroft_addr=MYCROFT_ADDR_ENV, mycroft_port=MYCROFT_PORT_ENV):

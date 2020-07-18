@@ -1,7 +1,7 @@
 # /bin/env python3
 
 import unittest
-import websocket
+import websocket  # type: ignore
 import mock
 import mycroft_cl
 import os
