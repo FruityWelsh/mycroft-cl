@@ -6,22 +6,16 @@ import sys
 import os
 
 logging.basicConfig(level=logging.DEBUG)
+local_file_path = os.path.dirname(os.path.realpath(__file__))
 MYCROFT_ADDR = os.environ.get("MYCROFT_ADDR", "localhost")
 MYCROFT_PORT = os.environ.get("MYCROFT_PORT", "8181")
 MYCROFT_JSON_DIR = os.environ.get(
-    "MYCROFT_JSON_DIR",
-    "%s/mycroft-json-messages" % (os.path.dirname(os.path.realpath(__file__))),
+    "MYCROFT_JSON_DIR", f"{local_file_path}/mycroft-json-messages"
 )
 logging.debug("ENV VARS SET:")
 logging.debug(f"MYCROFT_ADDR = {MYCROFT_ADDR}")
 logging.debug(f"MYCROFT_PORT = {MYCROFT_PORT}")
 logging.debug(f"MYCROFT_JSON_DIR = {MYCROFT_JSON_DIR}")
-
-# logging.warning("ENV VARS NOT SET. Using default.")
-# MYCROFT_ADDR = "localhost"
-# MYCROFT_PORT = "8181"
-# MYCROFT_JSON_DIR = "%s/mycroft-json-messages" % (
-#        os.path.dirname(os.path.realpath(__file__)))
 
 
 def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
