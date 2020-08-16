@@ -10,7 +10,7 @@ try:
     MYCROFT_ADDR_ENV = os.environ["MYCROFT_ADDR"]
     MYCROFT_PORT_ENV = os.environ["MYCROFT_PORT"]
     JSON_DIR_ENV = os.environ["MYCROFT_JSON_DIR"]
-    logging.info("ENV VARS SET")
+    logging.debug("ENV VARS SET")
 except KeyError:
     logging.warning("ENV VARS NOT SET. Using default.")
     MYCROFT_ADDR_ENV = "localhost"
@@ -22,14 +22,14 @@ except KeyError:
 
 def send_message(message, mycroft_addr=MYCROFT_ADDR_ENV, mycroft_port=MYCROFT_PORT_ENV):
     url = f"ws://{mycroft_addr}:{mycroft_port}/core"
-    logging.info(f"Websocket url: {url}")
+    logging.debug(f"Websocket url: {url}")
     ws = create_connection(url)
     # try
-    logging.info(f"String sent: {message}")
+    logging.debug(f"String sent: {message}")
     send_status = ws.send(json.dumps(message))
-    logging.info(f"Send status: {send_status}")
+    logging.debug(f"Send status: {send_status}")
     result = ws.recv()
-    logging.info(f"received: {result}")
+    logging.debug(f"received: {result}")
     # except:
     logging.warning("Failed")
     ws.close()
