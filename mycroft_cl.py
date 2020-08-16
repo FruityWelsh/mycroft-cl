@@ -12,10 +12,12 @@ MYCROFT_PORT = os.environ.get("MYCROFT_PORT", "8181")
 MYCROFT_JSON_DIR = os.environ.get(
     "MYCROFT_JSON_DIR", f"{local_file_path}/mycroft-json-messages"
 )
+LANG = os.environ.get("LANG", "en-us")
 logging.debug("ENV VARS SET:")
 logging.debug(f"MYCROFT_ADDR = {MYCROFT_ADDR}")
 logging.debug(f"MYCROFT_PORT = {MYCROFT_PORT}")
 logging.debug(f"MYCROFT_JSON_DIR = {MYCROFT_JSON_DIR}")
+logging.debug(f"LANG = {LANG}")
 
 
 def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
@@ -43,8 +45,15 @@ def get_mycroft_message(command, json_dir=MYCROFT_JSON_DIR):
 
 def run(command, data, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
     message = get_mycroft_message(command)
+
     if command == "speak":
-        message["data"]["utterance"] = "".join(data)
+        message["data"]["utterance"] = " ".join(data)
+    elif command == "say-to":
+        message["data"]["utterance"] = data
+        message["data"]["lang"] = LANG
+    elif command == "question-query":
+        message["data"]["phrase"] = " ".join(data)
+
     send_message(message, mycroft_addr, mycroft_port)
 
 
