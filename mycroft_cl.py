@@ -58,4 +58,12 @@ def run(command, data, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
 
 
 if __name__ == "__main__":
-    run(sys.argv[1], sys.argv[2:])
+    import time
+
+    if sys.argv[2:] == []:
+        logging.debug("No args given defaulting to stdin")
+        for line in sys.stdin:
+            run(sys.argv[1], [line])
+    else:
+        logging.debug(f"Passing args: {sys.argv[2:]}")
+        run(sys.argv[1], sys.argv[2:])
