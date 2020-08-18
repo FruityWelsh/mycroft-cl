@@ -46,7 +46,7 @@ def get_mycroft_message(command, json_dir=MYCROFT_JSON_DIR) -> dict:
     return message
 
 
-def run(command, data, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
+def run(command: str, data: list, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
     """Parses data into expected json fields depending on which command is provided"""
     message = get_mycroft_message(command)
 
