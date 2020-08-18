@@ -36,7 +36,7 @@ or by adding those lines (but with your new values) to your ```${HOME}/.profile`
 
 Setup for development:
 
-I currently use poetry for depency managment.
+I currently use poetry for dependency managment.
 
 I also use black and mypy for code linting and include pre-commit hooks for them. 
 
