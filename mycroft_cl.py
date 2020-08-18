@@ -36,14 +36,13 @@ def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
         ws.close()
 
 
-def get_mycroft_message(command, json_dir=MYCROFT_JSON_DIR):
+def get_mycroft_message(command, json_dir=MYCROFT_JSON_DIR) -> dict:
     """Retrives and loads the correct json file for the command given"""
     json_file = f"{json_dir}/{command}.json"
     logging.debug(f"json_file: {json_file}")
     with open(f"{json_file}", "rb") as fh:
         message = json.load(fh)
     logging.debug(f"json_message: {message}")
-    print(type(message))
     return message
 
 
