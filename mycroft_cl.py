@@ -21,7 +21,7 @@ logging.debug(f"MYCROFT_JSON_DIR = {MYCROFT_JSON_DIR}")
 logging.debug(f"LANG = {LANG}")
 
 
-def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
+def send_message(message: dict, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
     """Creates websocket address string, connects and sends fully formed json message"""
     url = f"ws://{mycroft_addr}:{mycroft_port}/core"
     logging.debug(f"Websocket url: {url}")
@@ -36,7 +36,7 @@ def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
         ws.close()
 
 
-def get_mycroft_message(command, json_dir=MYCROFT_JSON_DIR) -> dict:
+def get_mycroft_message(command: str, json_dir=MYCROFT_JSON_DIR) -> dict:
     """Retrives and loads the correct json file for the command given"""
     json_file = f"{json_dir}/{command}.json"
     logging.debug(f"json_file: {json_file}")
