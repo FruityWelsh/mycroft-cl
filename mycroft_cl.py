@@ -5,8 +5,9 @@ import logging
 import sys
 import os
 
-
-logging.basicConfig(level=logging.DEBUG)
+## var setup
+MYCROFTCL_LOGGING = os.environ.get("MYCROFTCL_LOGGING", logging.WARN)
+logging.basicConfig(level=MYCROFTCL_LOGGING)
 local_file_path = os.path.dirname(os.path.realpath(__file__))
 MYCROFT_ADDR = os.environ.get("MYCROFT_ADDR", "localhost")
 MYCROFT_PORT = os.environ.get("MYCROFT_PORT", "8181")
