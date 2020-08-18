@@ -5,6 +5,7 @@ import logging
 import sys
 import os
 
+
 logging.basicConfig(level=logging.DEBUG)
 local_file_path = os.path.dirname(os.path.realpath(__file__))
 MYCROFT_ADDR = os.environ.get("MYCROFT_ADDR", "localhost")
@@ -21,6 +22,7 @@ logging.debug(f"LANG = {LANG}")
 
 
 def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
+    """Creates websocket address string, connects and sends fully formed json message"""
     url = f"ws://{mycroft_addr}:{mycroft_port}/core"
     logging.debug(f"Websocket url: {url}")
     ws = create_connection(url)
@@ -35,15 +37,18 @@ def send_message(message, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
 
 
 def get_mycroft_message(command, json_dir=MYCROFT_JSON_DIR):
+    """Retrives and loads the correct json file for the command given"""
     json_file = f"{json_dir}/{command}.json"
     logging.debug(f"json_file: {json_file}")
     with open(f"{json_file}", "rb") as fh:
         message = json.load(fh)
     logging.debug(f"json_message: {message}")
+    print(type(message))
     return message
 
 
 def run(command, data, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
+    """Parses data into expected json fields depending on which command is provided"""
     message = get_mycroft_message(command)
 
     if command == "speak":

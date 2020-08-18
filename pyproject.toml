@@ -7,12 +7,11 @@ license = "Apache License 2.0"
 
 [tool.poetry.dependencies]
 python = "^3.8"
-mycroft-json-messages = {git = "https://github.com/FruityWelsh/mycroft-json-messages.git"}
+websockets = "^8.1"
 
 [tool.poetry.dev-dependencies]
 poetry = {git = "https://github.com/python-poetry/poetry.git"}
 black = "^19.10b0"
-websockets = "^8.1"
 
 [build-system]
 requires = ["poetry>=0.12"]
