@@ -34,6 +34,12 @@ export MYCROFT_PORT='8181'
 
 or by adding those lines (but with your new values) to your ```${HOME}/.profile``` config file.
 
+ENV VARS:
+MYCROFTCL_LOGGING ## if unset = 'WARN', other options include 'DEBUG|INFO|WARN|ERROR' 
+MYCROFT_ADDR      ## if unset = "localhost", can be any valid address of a mycroft instance
+MYCROFT_PORT      ## if unset = "8181", can be any valid port to a mycroft instance
+MYCROFT_JSON_DIR  ## if unset = {local_file_path}/mycroft-json-messages, can be any valid directory
+
 Setup for development:
 
 I currently use poetry for dependency managment.
