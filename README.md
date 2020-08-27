@@ -46,4 +46,9 @@ I currently use poetry for dependency managment.
 
 I also use black and mypy for code linting and include pre-commit hooks for them. 
 
-
+### Commands tested  
+- [x] speak
+- [x] say-to
+- [x] stop
+- [x] increase-volume
+- [x] decrease-volume
