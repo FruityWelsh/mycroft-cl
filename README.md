@@ -39,6 +39,7 @@ MYCROFTCL_LOGGING ## if unset = 'WARN', other options include 'DEBUG|INFO|WARN|E
 MYCROFT_ADDR      ## if unset = "localhost", can be any valid address of a mycroft instance
 MYCROFT_PORT      ## if unset = "8181", can be any valid port to a mycroft instance
 MYCROFT_JSON_DIR  ## if unset = {local_file_path}/mycroft-json-messages, can be any valid directory
+LANG              ## if unset = "en-us"
 
 Setup for development:
 
