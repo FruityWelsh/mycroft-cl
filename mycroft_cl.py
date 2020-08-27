@@ -50,15 +50,15 @@ def get_mycroft_message(command: str, json_dir=MYCROFT_JSON_DIR) -> dict:
 def run(command: str, data: list, mycroft_addr=MYCROFT_ADDR, mycroft_port=MYCROFT_PORT):
     """Parses data into expected json fields depending on which command is provided"""
     message = get_mycroft_message(command)
-
     if command == "speak":
-        message["data"]["utterance"] = " ".join(data)
+        data_string = " ".join(data)
+        message["data"]["utterance"] = data_string
     elif command == "say-to":
-        message["data"]["utterance"] = data
+        message["data"]["utterances"] = data
         message["data"]["lang"] = LANG
     elif command == "question-query":
-        message["data"]["phrase"] = " ".join(data)
-
+        data_string = " ".join(data)
+        message["data"]["phrase"] = data_string
     send_message(message, mycroft_addr, mycroft_port)
 
 
