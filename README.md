@@ -55,9 +55,9 @@ I also use black and mypy for code linting and include pre-commit hooks for them
 - [x] decrease-volume
 
 ### mycroft/bin replicated
-- [x] ```mycroft-speak``` as ```mycroft_cl.py speak```
-- [x] ```mycroft-say-to``` as ```mycroft_cl.py say-to```
-- [ ? ] ```mycroft-listen``` as ```mycroft_cl.py listen```
+- [x] ```mycroft-speak``` as ```mycroftcl.py speak```
+- [x] ```mycroft-say-to``` as ```mycroftcl.py say-to```
+- [ ? ] ```mycroft-listen``` as ```mycroftcl.py listen```
 - [ ] ```mycroft-cli-client```
 - [ ] ```mycroft-msm```     unsure if needed in this util
 - [ ] ```mycroft-start```   This one may be very hard to implement as there are some many different mycroft setups
