@@ -23,7 +23,7 @@ cd mycroft-cl
 ```
 
 if you are running this for a local mycroft instance then you can run it with no added steps for example:
-```./mycroft_cl.py speak hello``` 
+```./mycroftcl.py speak hello``` 
 
 Otherwise you can change the IP target address and port by change the ```MYCROFT_ADDR``` and ```MYCROFT_PORT``` env vars.
 This can be done prior to use like:
